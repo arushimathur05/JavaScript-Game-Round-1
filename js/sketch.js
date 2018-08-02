@@ -1,6 +1,6 @@
 function setup() {
     createCanvas(canvasWidth, canvasHeight);
-    ellipseMode(CORNER);
+    ellipseMode(RADIUS);
 }
 
 function draw() {
@@ -10,5 +10,7 @@ function draw() {
     //drawTime();
 
     drawBoard();
+    drawPlayer(game.player);
+    drawPlayer(game.enemy);
     //moveEnemy();
 }
