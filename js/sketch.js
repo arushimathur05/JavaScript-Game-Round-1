@@ -5,9 +5,10 @@ function setup() {
 
 function draw() {
     background(51);
+    
     //drawScore();
     //drawTime();
 
-    //drawBoard();
+    drawBoard();
     //moveEnemy();
 }
