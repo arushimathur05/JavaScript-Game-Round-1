@@ -5,8 +5,8 @@ function calculateScore(){
     // LOOP THROUGH THE BOARD
     for (let r = 0; r < ROWS; r++) {
         for (let c = 0; c < COLS; c++) {
-            if (game.board[r][c] == P1)game.score.player1 += 1;
-            if (game.board[r][c] == P1)game.score.player2 += 1;
+           if (game.board[r][c] == P1) game.score.player1 += 1; 
+           if (game.board[r][c] == P2) game.score.player2 += 1;
         }
     }
 }
