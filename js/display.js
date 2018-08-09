@@ -50,6 +50,15 @@ function drawBoard(){
 
 function drawScore(){
     noStroke();
+    fill("white"); // optional
+    textSize(18);  // optional
+
     let s1 = 'player 1: ' + game.score.player1;
-    text(s1, gridMargin, canvasHeight - scoreHeight + 5);
+    textAlign(LEFT);
+    text(s1, gridMargin, canvasHeight - scoreHeight + 11);
+  
+    let s2 = 'player 2: ' + game.score.player2;
+    textAlign(RIGHT);
+    text(s2, canvasWidth - gridMargin, canvasHeight - scoreHeight + 11);
+
 }
