@@ -10,18 +10,41 @@ function keyPressed() {
         game.player.r += -1;
     }
 
-    // when player goes off the screen left
-    if (game.player.c < 0) game.player.c = COLS - 1;
-    // when player goes off the screen top
-    if (game.player.r < 0) game.player.r = ROWS - 1;
-    
-    // when player goes off the screen bottom
-    if (game.player.r == ROWS) game.player.r = 0;
-    // when player goes off the screen right
-    if (game.player.c == COLS) game.player.c = 0;
-
-    // this is where we "paint" the cell
-    game.board[game.player.r][game.player.c] = P1;
+    // the pacman code used to be here!!!
+    pacman(game.player);
 
     calculateScore();
+}
+
+function moveEnemy() {
+    if (Math.random() > 0.5)    // move horizontally
+        // if ( human player is to the right of enemy) move enemy right
+        if (game.player.c > game.enemy.c)
+            game.enemy.c += 1;  // move to the right
+        else
+            game.enemy.c += -1; // move to the left
+
+    else                        // move vertically
+        if (game.player.r > game.enemy.r)
+            game.enemy.r += 1;  // move to the right
+        else
+            game.enemy.r += -1; // move to the left
+
+    pacman(game.enemy);
+    calculateScore();
+}
+
+function pacman(p) {
+    // when player goes off the screen left
+    if (p.c < 0) p.c = COLS - 1;
+    // when player goes off the screen top
+    if (p.r < 0) p.r = ROWS - 1;
+
+    // when player goes off the screen bottom
+    if (p.r == ROWS) p.r = 0;
+    // when player goes off the screen right
+    if (p.c == COLS) p.c = 0;
+
+    // this is where we "paint" the cell
+    game.board[p.r][p.c] = p.colorIndex;
 }
