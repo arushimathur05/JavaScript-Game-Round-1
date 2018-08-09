@@ -1,13 +1,14 @@
 let gridSize = 40;
 let gridMargin = 10;
 let gridSpace = 3;
-let canvasWidth = COLS * gridSize + 2 * gridMargin;
-let canvasHeight = ROWS * gridSize + 2 * gridMargin;
+let scoreHeight = 30;
+let canvasWidth = COLS * gridSize + 2 * gridMargin + (COLS - 1) * gridSpace;
+let canvasHeight = ROWS * gridSize + 2 * gridMargin + (COLS - 1) * gridSpace + scoreHeight;
 
 let colors = [
-    "red",
-    "blue",
-    "orange",
+    "white",
+    "violet",
+    "cyan",
     "pink",
     "green",
     "purple"
@@ -43,3 +44,16 @@ for (let r = 0; r < ROWS; r++) {
     }
 }
 } 
+
+function drawScore(){
+    noStroke();
+    fill("white");
+    textSize(18);
+    let s1 = 'player 1: ' + game.score.player1;
+    textAlign(LEFT);
+    text(s1, gridMargin, canvasHeight - scoreHeight + 11);
+
+    let s2 = 'player 2: ' + game.score.player2;
+    textAlign(RIGHT);
+    text(s2, canvasWidth - gridMargin, canvasHeight - scoreHeight + 11);
+}
