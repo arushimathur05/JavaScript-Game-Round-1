@@ -1,6 +1,5 @@
 function keyPressed() {
     console.log("keyPressed keyCode = " + keyCode);
-
     if (keyCode === LEFT_ARROW) {
         game.player.c += -1;
     } else if (keyCode === RIGHT_ARROW) {
@@ -18,6 +17,11 @@ function keyPressed() {
     
     // when player goes off the screen bottom
     if (game.player.r == ROWS) game.player.r = 0;
-    
+    // when player goes off the screen right
+    if (game.player.c == COLS) game.player.c = 0;
+
+    // this is where we "paint" the cell
     game.board[game.player.r][game.player.c] = P1;
+
+    calculateScore();
 }

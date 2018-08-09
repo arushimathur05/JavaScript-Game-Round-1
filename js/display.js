@@ -1,8 +1,9 @@
 let gridSize = 40;
 let gridMargin = 10;
 let gridSpace = 8;
+let scoreHeight = 30;
 let canvasWidth = COLS * gridSize + 2 * gridMargin + (COLS - 1) * gridSpace;
-let canvasHeight = ROWS * gridSize + 2 * gridMargin + (COLS - 1) * gridSpace;
+let canvasHeight = ROWS * gridSize + 2 * gridMargin + (COLS - 1) * gridSpace + scoreHeight;
 
 let colors = [
     "#e24b3d",
@@ -11,9 +12,6 @@ let colors = [
     "pink",
     "green"
 ];
-
-// for {c:0, r:0} => {x:0, y:0}
-// for {c:5, r:1} => {x:200, y:40}
 
 function translateXY(r,c){
     let x = c * (gridSize + gridSpace) + gridSize / 2 + gridMargin;
@@ -48,4 +46,10 @@ function drawBoard(){
             ellipse(coord.x,coord.y,gridSize /2);
         }
     }
+}
+
+function drawScore(){
+    noStroke();
+    let s1 = 'player 1: ' + game.score.player1;
+    text(s1, gridMargin, canvasHeight - scoreHeight + 5);
 }
