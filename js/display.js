@@ -111,8 +111,5 @@ function drawParticles(){
         if (p.life == 0) {
             particles.slice(i,i + 1);
         }
-
-
-
     }
 }
