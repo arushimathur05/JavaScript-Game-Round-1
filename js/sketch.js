@@ -13,4 +13,6 @@ function draw() {
     drawPlayer(game.enemy);
     if (frameCount % 30 == 0)  moveEnemy();
     drawScore();
+
+    drawParticles();
 }

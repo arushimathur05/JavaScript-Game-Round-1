@@ -62,3 +62,57 @@ function drawScore(){
     text(s2, canvasWidth - gridMargin, canvasHeight - scoreHeight + 11);
 
 }
+
+let particles = [];
+
+function addParticle(
+    x,y,
+    dx,dy,
+    ddx,ddy,
+    life,
+    colorIndex
+){
+  particles.push(
+      {
+        x:x,y:y,
+        dx:dx,dy:dy,
+        ddx:ddx,ddy:ddy,
+        life:life,
+        colorIndex:colorIndex 
+      }
+  )
+}
+
+addParticle(
+    100,100, // x,  y
+    0.1,0.1, // dx, dy
+    0,0.01,     // ddx,ddy
+    100,     // life
+    4        // colorIndex
+)
+
+function drawParticles(){
+    let i = particles.length;
+    while(i--){
+        let p = particles[i];
+
+        fill(colors[p.colorIndex]);
+        ellipse(p.x, p.y, p.life / 10);
+
+        // change the position
+        p.x += p.dx;
+        p.y += p.dy;
+
+        p.dx += p.ddx;
+        p.dy += p.ddy;
+
+        p.life += -1;
+
+        if (p.life == 0) {
+            particles.slice(i,i + 1);
+        }
+
+
+
+    }
+}
